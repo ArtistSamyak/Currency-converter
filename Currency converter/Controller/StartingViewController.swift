@@ -11,7 +11,7 @@ import CoreLocation
 
 
 class StartingViewController: UIViewController, CLLocationManagerDelegate {
-
+    // classes are initialized.
     let locationManager = CLLocationManager()
     var CurrencyList = currencyList()
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class StartingViewController: UIViewController, CLLocationManagerDelegate {
         destinationVC.baceIndex = CurrencyList.baceListNumber
     }
     
-    
+    //Function to fetch currency information from API.
     func GetRates()  {
         let url = URL(string: "https://api.exchangeratesapi.io/latest?base=\(CurrencyList.baceCurrency)")
         var request = URLRequest(url: url!)
@@ -44,6 +44,7 @@ class StartingViewController: UIViewController, CLLocationManagerDelegate {
             let decoder = JSONDecoder()
             
             let decodedData = try! decoder.decode(JSONStruct.self, from: data!)
+            //updating all the relativeRates in the currency list.
             self.CurrencyList.list[0].relativeRate = Float(decodedData.rates.USD)
             self.CurrencyList.list[1].relativeRate = Float(decodedData.rates.JPY)
             self.CurrencyList.list[2].relativeRate = Float(decodedData.rates.BGN)
@@ -99,10 +100,11 @@ class StartingViewController: UIViewController, CLLocationManagerDelegate {
         GetInfo(Lat: lat!, Lon: long!)
         
     }
-    
+    //function to find current location Country name using latitude and longitude and aanother API.
     func GetInfo(Lat: Double, Lon: Double) {
         
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=" + String(Lat) + "&lon=" + String(Lon) + "&appid=d15f2a7a7210e09094bed92c19b51846&units=metric")
+        print("https://api.openweathermap.org/data/2.5/weather?lat=" + String(Lat) + "&lon=" + String(Lon) + "&appid=d15f2a7a7210e09094bed92c19b51846&units=metric")
         let session = URLSession(configuration: .default)
         
         

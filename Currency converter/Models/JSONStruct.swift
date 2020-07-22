@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Used to fetch required data for currency conversion using API
 struct JSONStruct: Codable {
     let base : String
     let date : String

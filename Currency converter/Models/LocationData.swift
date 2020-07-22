@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//Used to fetch JSON responce to get Country name.
 struct LocationData: Codable {
     let sys: Sys
 }

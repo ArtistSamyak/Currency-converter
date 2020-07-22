@@ -49,6 +49,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3DB84D824C8541700FFE7E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3EF804E24BDB1E2006E9F17 /* Currency.swift */,
+				E3EF805024BDB2C3006E9F17 /* currencyList.swift */,
+				E3EF805224BDC54F006E9F17 /* JSONStruct.swift */,
+				E3EF805424BDE41C006E9F17 /* LocationData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3DB84D924C8541E00FFE7E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3EF803B24BDA786006E9F17 /* Main.storyboard */,
+				E3EF804324BDA787006E9F17 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E3DB84DA24C8542400FFE7E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3EF804C24BDAE42006E9F17 /* StartingViewController.swift */,
+				E3EF803924BDA786006E9F17 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E3EF802924BDA786006E9F17 = {
 			isa = PBXGroup;
 			children = (
@@ -68,19 +97,14 @@
 		E3EF803424BDA786006E9F17 /* Currency converter */ = {
 			isa = PBXGroup;
 			children = (
+				E3DB84DA24C8542400FFE7E1 /* Controller */,
+				E3DB84D924C8541E00FFE7E1 /* View */,
+				E3DB84D824C8541700FFE7E1 /* Models */,
 				E3EF803524BDA786006E9F17 /* AppDelegate.swift */,
 				E3EF803724BDA786006E9F17 /* SceneDelegate.swift */,
-				E3EF803924BDA786006E9F17 /* ViewController.swift */,
-				E3EF803B24BDA786006E9F17 /* Main.storyboard */,
 				E3EF804124BDA787006E9F17 /* Assets.xcassets */,
-				E3EF804324BDA787006E9F17 /* LaunchScreen.storyboard */,
 				E3EF804624BDA787006E9F17 /* Info.plist */,
 				E3EF803E24BDA786006E9F17 /* Currency_converter.xcdatamodeld */,
-				E3EF804C24BDAE42006E9F17 /* StartingViewController.swift */,
-				E3EF804E24BDB1E2006E9F17 /* Currency.swift */,
-				E3EF805024BDB2C3006E9F17 /* currencyList.swift */,
-				E3EF805224BDC54F006E9F17 /* JSONStruct.swift */,
-				E3EF805424BDE41C006E9F17 /* LocationData.swift */,
 			);
 			path = "Currency converter";
 			sourceTree = "<group>";

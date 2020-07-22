@@ -9,10 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-    var list : [Currency] = []
-    var locationIndex : Int = 5
-    var baceIndex : Int = 3
-    var isReverced = false
+    var list : [Currency] = [] // this is later given updated currenct list.
+    var locationIndex : Int = 5 // index of current location in list array.
+    var baceIndex : Int = 3// index of native country location in list array.
+    var isReverced = false// used when user taps on "Change" button.
     @IBOutlet weak var foreign: UILabel!
     @IBOutlet weak var foreignText: UITextField!
     @IBOutlet weak var baceCountry: UILabel!
@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func change(_ sender: UIButton) {
+        
         foreignText.endEditing(true)
         var tempText = foreign.text
         foreign.text = baceCountry.text
@@ -34,7 +35,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         foreignText.text = ""
         baseAmount.text = ""
-        isReverced = true
+        if isReverced == true{
+            isReverced = false
+        }else{
+            isReverced = true
+        }
         
         
         
@@ -45,16 +50,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if foreignText.text != nil {
             let value = Float(foreignText.text!)!
             let rate : Float
-            foreignText.text?.append(contentsOf: " \(list[locationIndex].currency)")
+            
             if isReverced == true {
                 rate = list[locationIndex].relativeRate
+                foreignText.text?.append(contentsOf: " \(list[baceIndex].currency)")
             }else{
+                foreignText.text?.append(contentsOf: " \(list[locationIndex].currency)")
                 rate = 1/list[locationIndex].relativeRate
             }
             print(rate)
             let amount = Float(value * rate)
             baseAmount.text = String(format: "%.2f", amount)
-            baseAmount.text?.append(contentsOf: " \(list[baceIndex].currency)")
+            if isReverced == true{
+                baseAmount.text?.append(contentsOf: " \(list[locationIndex].currency)")
+
+            }else{
+                baseAmount.text?.append(contentsOf: " \(list[baceIndex].currency)")
+
+            }
+            
             foreignText.endEditing(true)
         }
         
